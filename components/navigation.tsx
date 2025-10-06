@@ -13,6 +13,7 @@ export default function Navigation() {
     { href: "/quienes-somos", label: "Quiénes somos" },
     { href: "/contratar", label: "Contratar" },
     { href: "/espacio-empresas", label: "Espacio Empresas" },
+    { href: "/espacio-eventos", label: "Espacio Eventos" },
     { href: "/funcionamiento", label: "Funcionamiento de la App" },
     { href: "/contacto", label: "Contacto" },
   ]
