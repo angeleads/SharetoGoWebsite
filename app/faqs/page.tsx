@@ -32,6 +32,64 @@ const faqData: { question: string; answer: ReactNode }[] = [
     {
         question: "¿A parte de le gestión de la movilidad, la empresa puede beneficiarse de otros servicios?",
         answer: "Sí. Desde la página web, la empresa puede acceder a una Intranet en la cual puede encontrar todos los datos de su empresa generales, y por empleados, estrechamente ligados con la sostenibilidad y el cumplimiento de nuevas normativas."
+    },
+    {
+        question: "¿Es obligatorio ir y volver con la misma persona?",
+        answer: (
+            <>
+                <p className="mb-3">NO</p>
+                <p className="mb-2"><span className="font-semibold">Conductor:</span> No, no es obligatorio. No tienes el compromiso de llevar a las mismas personas en el trayecto de ida y vuelta, salvo que hayas publicado un trayecto específico para ambos recorridos.</p>
+                <p><span className="font-semibold">Pasajero:</span> No, no es obligatorio. No tienes el compromiso de volver en el mismo coche que usaste para la ida, salvo que hayas reservado un trayecto específico de ida y vuelta con el mismo conductor.</p>
+            </>
+        )
+    },
+    {
+        question: "¿Cuánto tiempo debo esperar si el conductor o el pasajero no llega?",
+        answer: (
+            <>
+                <p className="mb-2"><span className="font-semibold">Conductor:</span> Debes esperar a los pasajeros en el punto de encuentro acordado al menos 15 minutos después de la hora establecida.</p>
+                <p><span className="font-semibold">Pasajero:</span> Debes esperar al conductor en el punto de encuentro acordado al menos 15 minutos después de la hora establecida.</p>
+            </>
+        )
+    },
+    {
+        question: "Si anulo, ¿se devuelve el dinero?",
+        answer: (
+            <>
+                <p className="mb-2 font-semibold">Conductor:</p>
+                <ul className="list-disc pl-6 mb-3">
+                    <li>Si el conductor anula el trayecto y ya ha recibido el pago, debe devolver a los pasajeros el importe íntegro.</li>
+                    <li>Si el conductor llega con más de 20 minutos de retraso, también se devuelve el importe completo al pasajero.</li>
+                </ul>
+                <p className="mb-2 font-semibold">Pasajero:</p>
+                <ul className="list-disc pl-6">
+                    <li>Si cancelas con 24 horas de antelación, recibes el reembolso total.</li>
+                    <li>Si cancelas con menos de 24 horas pero más de 30 minutos antes del trayecto, el importe se divide: la mitad para el conductor y la otra mitad para el pasajero.</li>
+                    <li>Si cancelas con menos de 30 minutos antes del trayecto, no recibes devolución y el conductor recibe el importe completo.</li>
+                </ul>
+            </>
+        )
+    },
+    {
+        question: "¿Dónde puedo saber todos los detalles de las políticas de SharetoGo?",
+        answer: (
+            <>
+                <p className="mb-2">
+                    Puedes mandarnos un correo a {""}
+                    <Link href="/contacto" className="font-bold text-black hover:underline">
+                        contactosharetogo@gmail.com
+                    </Link>{" "}
+                    o llamarnos a través del apartado de {""}
+                    <Link href="/contacto" className="font-bold text-black hover:underline">Contacto</Link>{" "}
+                    con cualquier pregunta.
+                </p>
+                <p>
+                    También puedes visitar nuestras {""}
+                    <Link href="/privacidad" className="font-bold text-black hover:underline">Políticas de Privacidad</Link>{" "}
+                    y Términos y Condiciones de Uso.
+                </p>
+            </>
+        )
     }
 ];
 

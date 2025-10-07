@@ -23,7 +23,7 @@ export default function Funcionamiento() {
   const driverSlides = [
     {
       image: "/images/conductor1.PNG",
-      title: "Publica tu viaje",
+      title: "Publica tu trayecto",
       description:
         "Abre la app y publica fácilmente tu ruta diaria. Indica tu origen, destino, horario y las plazas que tienes disponibles.",
     },
@@ -31,13 +31,13 @@ export default function Funcionamiento() {
       image: "/images/conductor2.PNG",
       title: "Recibe solicitudes",
       description:
-        "Tus compañeros de empresa verán tu viaje y podrán solicitar unirse. Recibirás notificaciones al instante.",
+        "Tus compañeros de empresa verán tus trayectos y podrán solicitar unirse. Recibirás notificaciones al instante.",
     },
     {
       image: "/images/conductor3.PNG",
       title: "Ahorra y comparte",
       description:
-        "Acepta a tus pasajeros, comparte gastos de forma automática y disfruta de un viaje más ameno y sostenible.",
+        "Acepta a tus pasajeros, comparte gastos de forma automática y disfruta de un trayecto más ameno y sostenible.",
     },
   ];
 
@@ -46,19 +46,19 @@ export default function Funcionamiento() {
       image: "/images/movil2.png",
       title: "Busca tu trayecto",
       description:
-        "Introduce tu destino y encuentra viajes compatibles publicados por tus compañeros.",
+        "Introduce tu destino y encuentra trayectos compatibles publicados por tus compañeros.",
     },
     {
       image: "/images/info_trayecto.PNG",
       title: "Reserva tu plaza",
       description:
-        "Revisa los detalles del viaje, el perfil del conductor y reserva tu asiento con un solo toque.",
+        "Revisa los detalles del trayecto, el perfil del conductor y reserva tu asiento con un solo toque.",
     },
     {
       image: "/images/chat1.png",
       title: "Coordina y viaja",
       description:
-        "Usa el chat integrado para coordinar los últimos detalles y prepárate para un viaje cómodo y seguro.",
+        "Usa el chat integrado para coordinar los últimos detalles y prepárate para un trayecto cómodo y seguro.",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function Funcionamiento() {
             Funcionamiento de la App
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Compartir viajes nunca fue tan fácil
+            Compartir trayectos nunca fue tan fácil
           </h1>
           <h2 className="text-2xl md:text-3xl font-medium text-gray-300 italic mb-8">
             Actúa como conductor y/o pasajero
@@ -96,8 +96,7 @@ export default function Funcionamiento() {
               Para conductores y pasajeros
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Tanto si ofreces tu coche como si buscas un viaje, el proceso es
-              sencillo, intuitivo y gratificante.
+              Tanto si ofreces tu coche como si buscas un trayecto, el proceso es sencillo, intuitivo y gratificante.
             </p>
           </div>
 
@@ -125,7 +124,7 @@ export default function Funcionamiento() {
               Proceso paso a paso
             </h2>
             <p className="text-lg text-gray-600">
-              Desde el registro hasta el viaje completado
+              Desde el registro hasta el trayecto completado
             </p>
           </div>
 
@@ -150,21 +149,21 @@ export default function Funcionamiento() {
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
                     <span>
-                      Inicie sesión y regístrese añadiendo la empresa para la
-                      que trabaja.
+                      Inicia sesión y regístrate añadiendo la empresa para la
+                      que trabajas.
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
                     <span>
-                      Asegúrese de que todo está configurado en la sección de su
+                      Asegúrate de que todo está configurado en la sección de tu
                       cuenta.
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
                     <span>
-                      Navegue por la cartera para configurar su información
+                      Navega por la cartera para configurar tu información
                       bancaria.
                     </span>
                   </li>
@@ -181,7 +180,7 @@ export default function Funcionamiento() {
                     </h4>
                     <p className="text-gray-600 text-sm">
                       Proceso de registro de menos de 5 minutos con guía paso a
-                      paso
+                      paso. 
                     </p>
                   </div>
                 </CardContent>
@@ -200,7 +199,7 @@ export default function Funcionamiento() {
                       Búsqueda y coincidencia
                     </h4>
                     <p className="text-gray-600 text-sm">
-                      Encuentre el destino de sus sueños y resérvelo con un
+                      Encuentra el destino que más te convenga y resérvalo con un
                       simple clic.
                     </p>
                   </div>
@@ -216,8 +215,8 @@ export default function Funcionamiento() {
                   </h3>
                 </div>
                 <p className="text-gray-600 mb-6 text-lg">
-                  ¿Buscas un viaje? Solo tienes que escribir tu destino en la
-                  sección de reservas y encontrar tu coincidencia
+                  ¿Buscas un trayecto? Solo tienes que escribir tu destino en la
+                  sección de reservas y encontrar tu coincidencia.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
@@ -230,7 +229,7 @@ export default function Funcionamiento() {
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
-                    <span>Reserva tu viaje coincidente.</span>
+                    <span>Reserva tu trayecto coincidente.</span>
                   </li>
                 </ul>
               </div>
@@ -249,20 +248,20 @@ export default function Funcionamiento() {
                 </div>
                 <p className="text-gray-600 mb-6 text-lg">
                   Los empleados se conectan directamente a través de la app,
-                  coordinan detalles del viaje y confirman su participación.
+                  coordinan detalles del trayecto y confirman su participación.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
-                    <span>Chat integrado para coordinación</span>
+                    <span>Chat integrado para coordinación.</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
-                    <span>Confirmación automática de disponibilidad</span>
+                    <span>Confirmación automática de disponibilidad.</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <CheckCircle className="text-[#9dd187]" size={20} />
-                    <span>Notificaciones push en tiempo real</span>
+                    <span>Notificaciones push en tiempo real.</span>
                   </li>
                 </ul>
               </div>
@@ -277,7 +276,7 @@ export default function Funcionamiento() {
                     </h4>
                     <p className="text-gray-600 text-sm">
                       Herramientas integradas para coordinar cada detalle del
-                      viaje
+                      trayecto.
                     </p>
                   </div>
                 </CardContent>

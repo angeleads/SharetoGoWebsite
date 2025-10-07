@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AnimatePresence, motion } from "framer-motion"
@@ -21,15 +21,28 @@ type InteractiveCardProps = {
 
 export function InteractiveCard({ title, subtitle, slides, isDriver = false }: InteractiveCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
   }, [slides.length])
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 6000) // Auto-swipe every 6 seconds
-    return () => clearInterval(interval)
+  const resetInterval = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    intervalRef.current = setInterval(nextSlide, 6000)
   }, [nextSlide])
+
+  useEffect(() => {
+    resetInterval()
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [resetInterval])
+
+  const handleSlideClick = (index: number) => {
+    setCurrentIndex(index)
+    resetInterval() // ✅ Reset the timer when user clicks
+  }
 
   const cardVariants = {
     driver: "bg-gradient-to-br from-[#9dd187] to-[#8bc475] text-[#2a2c38]",
@@ -37,7 +50,7 @@ export function InteractiveCard({ title, subtitle, slides, isDriver = false }: I
   }
 
   const progressVariants = {
-    driver: "bg-[#2a2c38]/50",
+    driver: "bg-white/50",
     passenger: "bg-white/50",
   }
 
@@ -51,7 +64,7 @@ export function InteractiveCard({ title, subtitle, slides, isDriver = false }: I
       </CardHeader>
       <CardContent className="p-8 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Image on the left */}
+          {/* Image */}
           <div className="relative h-96 md:h-96 rounded-lg overflow-hidden">
             <AnimatePresence initial={false}>
               <motion.div
@@ -67,13 +80,12 @@ export function InteractiveCard({ title, subtitle, slides, isDriver = false }: I
                   alt={slides[currentIndex].title}
                   layout="fill"
                   objectFit="contain"
-                  className=""
                 />
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Text content on the right */}
+          {/* Text */}
           <div className="flex flex-col justify-center h-full space-y-6 text-center md:text-left">
             <div>
               <h4 className="text-2xl font-bold text-[#2a2c38] mb-2">{slides[currentIndex].title}</h4>
@@ -83,19 +95,19 @@ export function InteractiveCard({ title, subtitle, slides, isDriver = false }: I
               {slides.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => handleSlideClick(index)} // ✅ Reset on click
                   className={cn(
-                    "w-10 h-1.5 rounded-full transition-all duration-300",
-                    currentIndex === index ? (isDriver ? "bg-[#2a2c38]" : "bg-[#9dd187]") : "bg-gray-300 hover:bg-gray-400"
+                    "w-10 h-1.5 rounded-full transition-all duration-300 relative overflow-hidden",
+                    currentIndex === index ? ("bg-[#9dd187]") : "bg-gray-300 hover:bg-gray-400"
                   )}
                 >
                   <span className="sr-only">Go to slide {index + 1}</span>
                   {currentIndex === index && (
                     <motion.div
-                      className={cn("h-full rounded-full", isDriver ? progressVariants.driver : progressVariants.passenger)}
+                      className={cn("absolute left-0 top-0 h-full rounded-full", isDriver ? progressVariants.driver : progressVariants.passenger)}
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
-                      transition={{ duration: 5, ease: "linear" }}
+                      transition={{ duration: 5.5, ease: "linear" }} // 5.5s for visual match with 6s timer
                     />
                   )}
                 </button>

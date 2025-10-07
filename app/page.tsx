@@ -1,7 +1,7 @@
 import Hero from "@/components/hero"
 import FeaturesBlocks from "@/components/features-blocks"
 import Options from "@/components/options"
-import Faqs from "@/components/faqs"
+import Faqs from "@/app/faqs/page"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Users, MapPin, Shield, Clock, TrendingUp } from "lucide-react"
@@ -12,7 +12,6 @@ export default function Home() {
       <Hero />
       <FeaturesBlocks />
       <Options />
-      <Faqs />
 
       {/* How it works section */}
       <section className="py-16 md:py-24 bg-background">
@@ -54,9 +53,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-[#9dd187] rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="text-white text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#2a2c38] mb-2">3. Viaje</h3>
+                <h3 className="text-xl font-semibold text-[#2a2c38] mb-2">3. Trayecto</h3>
                 <p className="text-gray-600">
-                  Comparten el viaje de forma segura con seguimiento en tiempo real y sistema de valoraciones
+                  Comparten el trayecto de forma segura con seguimiento en tiempo real y sistema de valoraciones
                 </p>
               </CardContent>
             </Card>

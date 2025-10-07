@@ -1,6 +1,9 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 import {
   Building2,
   TrendingUp,
@@ -33,10 +36,13 @@ export default function EspacioEmpresas() {
                 bienestar de sus empleados y alcanzar sus objetivos de sostenibilidad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-[#9dd187] hover:bg-[#8bc475] text-white px-8 py-4 text-lg">Solicitar demo</Button>
+                <Link href="/contratar">
+                  <Button className="bg-[#9dd187] hover:bg-[#8bc475] text-white px-8 py-4 text-lg">Solicitar demo</Button>
+                </Link>
                 <Button
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-[#2a2c38] px-8 py-4 text-lg bg-transparent"
+                  onClick={() => document.getElementById('casos-exito')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Ver casos de éxito
                 </Button>
@@ -46,14 +52,14 @@ export default function EspacioEmpresas() {
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
                 <CardContent className="pt-6 text-center">
-                  <div className="text-3xl font-bold text-[#9dd187] mb-2">500+</div>
+                  <div className="text-3xl font-bold text-[#9dd187] mb-2">20</div>
                   <p className="text-white text-sm">Empresas activas</p>
                 </CardContent>
               </Card>
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
                 <CardContent className="pt-6 text-center">
-                  <div className="text-3xl font-bold text-[#9dd187] mb-2">85%</div>
-                  <p className="text-white text-sm">Reducción CO₂</p>
+                  <div className="text-3xl font-bold text-[#9dd187] mb-2">300T</div>
+                  <p className="text-white text-sm">De CO₂ ahorrado</p>
                 </CardContent>
               </Card>
               <Card className="p-6 bg-white/10 backdrop-blur border-white/20">
@@ -92,27 +98,33 @@ export default function EspacioEmpresas() {
                 </div>
                 <h3 className="text-xl font-semibold text-[#2a2c38] mb-4">Empresas Medianas</h3>
                 <p className="text-gray-600 mb-6">
-                  Solución completa para empresas de 100-500 empleados que buscan optimizar la movilidad corporativa.
+                  Solución completa para empresas de 50-250 empleados que buscan optimizar la movilidad corporativa.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Dashboard de sostenibilidad personalizado</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="text-[#9dd187]" size={8} />
                     <span>Implementación en 2 semanas</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Dashboard de administración</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Formación de equipo y profesionales dedicados</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Soporte dedicado</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Integración con herramientas existentes</span>
                   </li>
                 </ul>
+                <Link href="/contratar">
                 <Button className="w-full bg-[#9dd187] hover:bg-[#8bc475] text-white">Más información</Button>
+                </Link>
               </CardContent>
             </Card>
 
-            <Card className="p-8 border-2 border-[#9dd187] bg-[#9dd187]/5">
+            <Card className="p-8 border-2 hover:border-[#9dd187] transition-colors">
               <CardContent className="pt-6">
                 <div className="w-16 h-16 bg-[#2a2c38] rounded-xl flex items-center justify-center mb-6">
                   <TrendingUp className="text-white text-2xl" />
@@ -124,19 +136,25 @@ export default function EspacioEmpresas() {
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Multi-sede y multi-país</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Dashboard de sostenibilidad personalizado</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Integraciones personalizadas</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Integraciones e interfaces personalizadas</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Formación y soporte para equipos grandes</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="text-[#9dd187]" size={8} />
                     <span>Account Manager dedicado</span>
                   </li>
                 </ul>
-                <Button className="w-full bg-[#2a2c38] hover:bg-[#1a1c24] text-white">Solicitar demo</Button>
+                <Link href="/contratar">
+                  <Button className="w-full bg-[#2a2c38] hover:bg-[#1a1c24] text-white">Más información</Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -147,23 +165,29 @@ export default function EspacioEmpresas() {
                 </div>
                 <h3 className="text-xl font-semibold text-[#2a2c38] mb-4">Startups & Pymes</h3>
                 <p className="text-gray-600 mb-6">
-                  Solución ágil y económica para empresas en crecimiento de 50-100 empleados.
+                  Solución ágil y económica para empresas en crecimiento de 10-50 empleados.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Setup en 1 semana</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Dashboard de sostenibilidad personalizado</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Precio por empleado</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Setup rápido: 1 semana</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="text-[#9dd187]" size={16} />
-                    <span>Sin costos de setup</span>
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Soporte dedicado</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="text-[#9dd187]" size={8} />
+                    <span>Sin costos de implementación</span>
                   </li>
                 </ul>
-                <Button className="w-full bg-[#9dd187] hover:bg-[#8bc475] text-white">Empezar ahora</Button>
+                <Link href="/contratar">
+                <Button className="w-full bg-[#9dd187] hover:bg-[#8bc475] text-white">Más información</Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -242,7 +266,7 @@ export default function EspacioEmpresas() {
       </section>
 
       {/* Case studies section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section id="casos-exito" className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2a2c38] mb-4">Casos de éxito</h2>

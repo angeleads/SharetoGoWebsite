@@ -246,7 +246,7 @@ const [formData, setFormData] = useState({
                   <div>
                     <h3 className="font-semibold text-[#2a2c38] mb-2">¿Ofrecen soporte en otros idiomas?</h3>
                     <p className="text-gray-600">
-                      Sí, ofrecemos soporte en español, inglés, francés y portugués para nuestros clientes
+                      Sí, ofrecemos soporte en español, inglés, francés, italiano y portugués para nuestros clientes
                       internacionales.
                     </p>
                   </div>
@@ -259,7 +259,7 @@ const [formData, setFormData] = useState({
                 <div className="flex gap-4">
                   <Building className="text-[#9dd187] mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <h3 className="font-semibold text-[#2a2c38] mb-2">¿Pueden visitarnos en nuestras oficinas?</h3>
+                    <h3 className="font-semibold text-[#2a2c38] mb-2">¿Es posible recibir una visita de un comercial?</h3>
                     <p className="text-gray-600">
                       Por supuesto. Nuestro equipo comercial puede desplazarse a tu empresa para presentaciones
                       personalizadas.

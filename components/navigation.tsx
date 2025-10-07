@@ -11,6 +11,7 @@ export default function Navigation() {
   const navItems = [
     { href: "/", label: "Inicio" },
     { href: "/quienes-somos", label: "Quiénes somos" },
+    { href: "/faqs", label: "FAQS" },
     { href: "/contratar", label: "Contratar" },
     { href: "/espacio-empresas", label: "Espacio Empresas" },
     { href: "/espacio-eventos", label: "Espacio Eventos" },
