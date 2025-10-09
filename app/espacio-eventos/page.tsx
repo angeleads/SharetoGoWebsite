@@ -124,7 +124,7 @@ export default function EspacioEventos() {
                   <p>
                     Podemos añadirte como evento disponible cuando quieras.{" "}
                     <Link
-                      href="/contratar-sharetogo"
+                      href="/contratar"
                       className="font-bold text-black underline hover:text-gray-700"
                     >
                       Más info aquí
