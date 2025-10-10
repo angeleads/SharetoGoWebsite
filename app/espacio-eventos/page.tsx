@@ -1,123 +1,146 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState } from 'react';
-import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
-import EventoImage from '@/public/images/eventos/evento.jpg';
-import Movil1EventosImage from '@/public/images/eventos/movil1eventos.png';
-import Movil2EventosImage from '@/public/images/eventos/movil2eventos.png';
-import Movil3EventosImage from '@/public/images/eventos/movil3eventos.png';
-import Movil4EventosImage from '@/public/images/eventos/movil4eventos.png';
-import UniversidadImage from '@/public/images/eventos/universidad.jpeg';
-import EstadioImage from '@/public/images/eventos/estadio.png';
-import FeriaImage from '@/public/images/eventos/feria.jpg';
-import EnvironmentImage from '@/public/images/eventos/environment.png';
-import SocialPeopleImage from '@/public/images/eventos/socialpeople.png';
-import SavingImage from '@/public/images/eventos/saving.png';
+import EventoImage from "@/public/images/eventos/evento.jpg";
+import Movil1EventosImage from "@/public/images/eventos/movil1eventos.png";
+import Movil2EventosImage from "@/public/images/eventos/movil2eventos.png";
+import Movil3EventosImage from "@/public/images/eventos/movil3eventos.png";
+import Movil4EventosImage from "@/public/images/eventos/movil4eventos.png";
+import UniversidadImage from "@/public/images/eventos/universidad.jpeg";
+import EstadioImage from "@/public/images/eventos/estadio.png";
+import FeriaImage from "@/public/images/eventos/feria.jpg";
+import EnvironmentImage from "@/public/images/eventos/environment.png";
+import SocialPeopleImage from "@/public/images/eventos/socialpeople.png";
+import SavingImage from "@/public/images/eventos/saving.png";
 
 export default function EspacioEventos() {
   const [faqOpen, setFaqOpen] = useState(false);
+  const handleToggleFaq = () => setFaqOpen((prev) => !prev);
 
-  const handleToggleFaq = () => setFaqOpen(prev => !prev);
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.querySelector('#reservar-section');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <>
-      <section className="bg-white pt-24 pb-20 px-4 md:pt-32 md:pb-24 md:px-8">
-        {/* Top Section */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-5xl md:text-4xl font-bold text-[#2a2c38] mb-6 drop-shadow-lg">
+    <main>
+      {/* Header Section */}
+      <section className="py-16 md:py-24 bg-[#2a2c38] text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#9dd187] mb-6 drop-shadow-lg">
             Espacio Eventos
-          </h2>
-          <div className="w-24 h-1 bg-[rgb(42,44,56)] mx-auto rounded-full mb-8"></div>
-          <p className="text-lg md:text-xl text-[#2a2c38] font-medium max-w-2xl mx-auto leading-relaxed">
-            ¿Vas a algún evento, festival, congreso, feria, escapada, discoteca, concierto, esquiada, evento deportivo...?
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 font-medium leading-relaxed">
+            ¿Vas a algún evento, festival, congreso, feria, escapada, discoteca,
+            concierto, esquiada, evento deportivo...?
           </p>
         </div>
+      </section>
 
-        {/* Main Event Info */}
-        <div className="flex justify-center">
-          <div className="bg-[#9dd187] w-5/6 rounded-lg shadow-md p-12 md:p-16 min-h-[400px]">
-            <div className="flex flex-col md:flex-row items-center gap-8 h-full">
-              <div className="flex-1 flex items-center">
-                <p className="text-lg md:text-xl text-[#2a2c38] font-medium leading-relaxed text-center">
-                  <span className="font-bold">SharetoGo</span> está presente dónde hayan desplazamientos. El objetivo es reducir las congestiones en las aglomeraciones poniendo en contacto a los asistentes para compartir coche.
-                </p>
+      {/* Intro Card */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div className="lg:col-span-7">
+              <Card className="h-full bg-[#9dd187] border-none shadow-xl">
+                <CardContent className="p-8 md:p-12 flex flex-col justify-center h-full">
+                  <p className="text-base md:text-lg text-[#2a2c38] font-medium leading-relaxed">
+                    <span className="font-bold">SharetoGo</span> está presente
+                    dónde hayan desplazamientos. El objetivo es reducir las
+                    congestiones en las aglomeraciones poniendo en contacto a
+                    los asistentes para compartir coche.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="h-full min-h-[400px] relative">
+                <Image
+                  src={EventoImage}
+                  alt="Evento con multitud y luces de escenario"
+                  className="rounded-xl shadow-xl object-cover w-full h-full"
+                  width={500}
+                  height={400}
+                  priority
+                />
               </div>
-              <div className="flex-1 flex justify-center">
-                <div className="w-full h-80 rounded-lg overflow-hidden">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ¿Conduces? */}
+      <section className="py-16 md:py-24 bg-[#f9fafb]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-5">
+            <div className="h-full flex items-center justify-center">
+              <Image
+                src={Movil1EventosImage}
+                alt="Persona usando móvil en evento"
+                className="object-contain max-h-[600px]"
+                width={500}
+                height={500}
+                priority
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <Card className="h-full bg-[#9dd187] border-none shadow-xl">
+              <CardContent className="p-8 md:p-12 flex flex-col justify-center h-full text-center lg:text-left">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#2a2c38] mb-6">
+                  ¿Conduces?
+                </h3>
+                <p className="text-lg md:text-xl text-[#2a2c38] font-medium mb-8">
+                  Selecciona el evento al que te diriges y futuros asistentes se
+                  unirán a tu trayecto.
+                </p>
+                <div className="rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src={EventoImage}
-                    alt="Evento con multitud y luces de escenario"
-                    className="w-full h-full object-cover"
+                    src={FeriaImage}
+                    alt="Feria comercial con stands y luces"
+                    className="w-full h-80 object-cover"
                     width={400}
                     height={320}
                     priority
                   />
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
+      </section>
 
-        {/* Second Section */}
-        <div className="max-w-6xl mx-auto mt-16">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3">
-              <div className="w-full h-[700px] rounded-2xl overflow-hidden flex items-center justify-center">
-                <Image
-                  src={Movil1EventosImage}
-                  alt="Persona usando móvil en evento"
-                  className="max-w-full max-h-full object-contain rounded-xl"
-                  width={600}
-                  height={500}
-                  priority
-                />
-              </div>
-            </div>
-            <div className="w-full md:w-2/3">
-              <h3 className="text-3xl md:text-4xl font-bold text-[#2a2c38] mb-6 text-center">
-                ¿Conduces?
-              </h3>
-              <p className="text-lg md:text-xl text-[#2a2c38] font-medium leading-relaxed mb-8 text-center">
-                Selecciona el evento al que te diriges y futuros asistentes se unirán a tu trayecto.
-              </p>
-              {/* Feria Image */}
-              <div className="w-4/5 h-80 mx-auto rounded-lg overflow-hidden">
-                <Image
-                  src={FeriaImage}
-                  alt="Feria comercial con stands y luces"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={320}
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <div className="w-full bg-[#9dd187] rounded-2xl p-6 md:p-8 min-h-[150px]">
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-[#2a2c38]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full bg-[#9dd187] rounded-2xl mt-4">
             <button
               type="button"
-              className="w-full flex justify-between items-center text-left p-4 sm:p-6 focus:outline-none"
-              aria-expanded={faqOpen}
               onClick={handleToggleFaq}
+              aria-expanded={faqOpen}
+              className="w-full flex justify-between items-center text-left p-4 sm:p-6 focus:outline-none"
             >
-              <h3 className="text-lg sm:text-2xl font-semibold text-[#2a2c38] flex-1 pr-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-[#2a2c38] flex-1 pr-4">
                 ¿Eres un evento y quieres contratar SharetoGo a medida?
               </h3>
               {faqOpen ? (
-                <CiCircleMinus className="text-4xl text-[#2a2c38] flex-shrink-0" />
+                <ChevronUp className="text-4xl text-[#2a2c38] flex-shrink-0" />
               ) : (
-                <CiCirclePlus className="text-4xl text-[#2a2c38] flex-shrink-0" />
+                <ChevronDown className="text-4xl text-[#2a2c38] flex-shrink-0" />
               )}
             </button>
             <div
-              className={`grid transition-all duration-500 ease-in-out ${faqOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+              className={`grid transition-all duration-500 ease-in-out ${
+                faqOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
             >
               <div className="overflow-hidden">
                 <div className="px-4 sm:px-6 pb-6 text-base sm:text-lg text-[#2a2c38]">
@@ -125,7 +148,7 @@ export default function EspacioEventos() {
                     Podemos añadirte como evento disponible cuando quieras.{" "}
                     <Link
                       href="/contratar"
-                      className="font-bold text-black underline hover:text-gray-700"
+                      className="font-bold text-black hover:underline"
                     >
                       Más info aquí
                     </Link>
@@ -135,165 +158,172 @@ export default function EspacioEventos() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* New Section: Movil 2 y 3 */}
-        <div className="max-w-6xl mx-auto mt-16 flex flex-col md:flex-row items-start gap-8">
-          {/* Movil 2 */}
-          <div className="w-full md:w-1/2 flex flex-col items-center">
-            <div className="w-full h-[600px] rounded-2xl overflow-hidden flex items-center justify-center mb-4">
+      {/* Móviles Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+          <Card className="bg-[#9dd187] border-none shadow-xl h-full">
+            <CardContent className="p-8 flex flex-col items-center h-full">
               <Image
                 src={Movil2EventosImage}
                 alt="Movil mostrando eventos disponibles"
-                className="max-w-full max-h-full object-contain rounded-xl"
+                className="rounded-xl object-contain max-h-[600px] mb-6"
                 width={400}
                 height={600}
                 priority
               />
-            </div>
-            <p className="text-lg md:text-xl font-medium text-center text-[#2a2c38]">
-              Busca entre todos nuestros eventos disponibles para poder seleccionar y ver en{" "}
-              <a href="#reservar-section" className="font-bold text-[#2a2c38] underline">
-                RESERVAR
-              </a>{" "}
-              los trayectos disponibles desde o hacia ese evento
-            </p>
-          </div>
+              <p className="text-lg md:text-xl font-medium text-center text-[#2a2c38]">
+                Busca entre todos nuestros eventos disponibles para poder
+                seleccionar y ver en{" "}
+                <a
+                  href="#reservar-section"
+                  className="font-bold text-[#2a2c38] underline"
+                  onClick={handleSmoothScroll}
+                >
+                  RESERVAR
+                </a>{" "}
+                los trayectos disponibles desde o hacia ese evento
+              </p>
+            </CardContent>
+          </Card>
 
-          {/* Movil 3 */}
-          <div className="w-full md:w-1/2 flex flex-col items-center">
-            <div className="w-full h-[600px] rounded-2xl overflow-hidden flex items-center justify-center mb-4">
+          <Card className="bg-[#9dd187] border-none shadow-xl h-full">
+            <CardContent className="p-8 flex flex-col items-center h-full">
               <Image
                 src={Movil3EventosImage}
                 alt="Movil guardando eventos favoritos"
-                className="max-w-full max-h-full object-contain rounded-xl"
+                className="rounded-xl object-contain max-h-[600px] mb-6"
                 width={400}
                 height={600}
                 priority
               />
-            </div>
-            <p className="text-lg md:text-xl font-medium text-center text-[#2a2c38]">
-              Guarda tus eventos favoritos para poder ver y filtrar en{" "}
-              <a href="#reservar-section" className="font-bold text-[#2a2c38] underline">
-                RESERVAR
-              </a>{" "}
-              todos los trayectos desde o hacia ese evento
-            </p>
-          </div>
-        </div>
-
-        {/* New Section: Reservar */}
-        <div
-          id="reservar-section"
-          className="max-w-6xl mx-auto mt-20 scroll-mt-32"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-[#2a2c38] mb-12 text-center">
-            ¿Reservar para ir a un evento?
-          </h3>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Imagen izquierda */}
-            <div className="w-full md:w-1/2 flex justify-center">
-              <div className="w-full h-[600px] rounded-2xl overflow-hidden flex items-center justify-center">
-                <Image
-                  src={Movil4EventosImage}
-                  alt="Movil mostrando opciones de reserva"
-                  className="max-w-full max-h-full object-contain rounded-xl"
-                  width={400}
-                  height={600}
-                  priority
-                />
-              </div>
-            </div>
-            {/* Texto derecha */}
-            <div className="w-full md:w-1/2">
-              <p className="text-lg md:text-xl font-medium text-[#2a2c38] leading-relaxed text-center md:text-left">
-                <span className="font-bold">FILTRA</span> para ver los trayectos hacia o desde el evento que quieras ir o volver y reserva la plaza que más te convenga.
+              <p className="text-lg md:text-xl font-medium text-center text-[#2a2c38]">
+                Guarda tus eventos favoritos para poder ver y filtrar en{" "}
+                <a
+                  href="#reservar-section"
+                  className="font-bold text-[#2a2c38] underline"
+                  onClick={handleSmoothScroll}
+                >
+                  RESERVAR
+                </a>{" "}
+                todos los trayectos desde o hacia ese evento
               </p>
-            </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Reservar Section */}
+      <section
+        id="reservar-section"
+        className="py-16 md:py-24 bg-[#f9fafb] scroll-mt-32"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-6">
+            <Image
+              src={Movil4EventosImage}
+              alt="Movil mostrando opciones de reserva"
+              className="object-contain max-h-[600px] mx-auto"
+              width={400}
+              height={600}
+              priority
+            />
+          </div>
+          <div className="lg:col-span-6">
+            <Card className="bg-[#9dd187] border-none shadow-xl">
+              <CardContent className="p-8 md:p-12 text-center lg:text-left">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#2a2c38] mb-6">
+                  ¿Reservar para ir a un evento?
+                </h3>
+                <p className="text-lg md:text-xl font-medium text-[#2a2c38] leading-relaxed">
+                  <span className="font-bold">FILTRA</span> para ver los
+                  trayectos hacia o desde el evento que quieras ir o volver y
+                  reserva la plaza que más te convenga.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
+      </section>
 
-        {/* New Section: Universidad + Estadio */}
-        <div className="flex justify-center mt-16">
-          <div className="bg-[#9dd187] w-4/5 rounded-lg shadow-md p-8 md:p-10">
-            <div className="flex flex-col gap-12">
-              {/* Fila 1 */}
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="flex-1 flex justify-center">
-                  <div className="w-full h-60 rounded-lg overflow-hidden">
-                    <Image
-                      src={UniversidadImage}
-                      alt="Universidad"
-                      className="w-full h-full object-cover"
-                      width={350}
-                      height={260}
-                      priority
-                    />
-                  </div>
-                </div>
-                <div className="flex-1 flex items-center">
-                  <p className="text-base md:text-lg text-[#2a2c38] font-medium leading-relaxed text-center md:text-left">
-                    En el espacio eventos lo que buscamos es que cualquier persona pueda ofrecer las plazas libres de su coche cuando se dirige a un evento o lugar específico, concurrido por muchas personas.
-                  </p>
-                </div>
-              </div>
-              {/* Fila 2 */}
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="flex-1 flex items-center">
-                  <p className="text-base md:text-lg text-[#2a2c38] font-medium leading-relaxed text-center md:text-left">
-                    Los asistentes, en lugar de ir solos, utilizar medios más contaminantes, o arriesgarse confiando en el transporte público, gracias a SharetoGo reservarán el trayecto que más les convenga. Ecológico, fácil y sencillo, además de económico.
-                  </p>
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="w-full h-60 rounded-lg overflow-hidden">
-                    <Image
-                      src={EstadioImage}
-                      alt="Estadio"
-                      className="w-full h-full object-cover"
-                      width={350}
-                      height={260}
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Universidad + Estadio */}
+      <section className="py-16 md:py-24 bg-[#2a2c38]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <Card className="bg-[#9dd187] border-none shadow-xl">
+            <CardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+              <Image
+                src={UniversidadImage}
+                alt="Universidad"
+                className="rounded-xl shadow-xl object-cover w-full md:w-1/2"
+                width={350}
+                height={260}
+                priority
+              />
+              <p className="text-base md:text-lg text-[#2a2c38] font-medium leading-relaxed text-center md:text-left">
+                En el espacio eventos lo que buscamos es que cualquier persona
+                pueda ofrecer las plazas libres de su coche cuando se dirige a
+                un evento o lugar específico, concurrido por muchas personas.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#9dd187] border-none shadow-xl">
+            <CardContent className="p-8 md:p-12 flex flex-col md:flex-row-reverse items-center gap-8">
+              <Image
+                src={EstadioImage}
+                alt="Estadio"
+                className="rounded-xl shadow-xl object-cover w-full md:w-1/2"
+                width={350}
+                height={260}
+                priority
+              />
+              <p className="text-base md:text-lg text-[#2a2c38] font-medium leading-relaxed text-center md:text-left">
+                Los asistentes, en lugar de ir solos, utilizar medios más
+                contaminantes, o arriesgarse confiando en el transporte público,
+                gracias a SharetoGo reservarán el trayecto que más les convenga.
+                Ecológico, fácil y sencillo, además de económico.
+              </p>
+            </CardContent>
+          </Card>
         </div>
+      </section>
 
-        {/* New Section: Environment, SocialPeople, Saving */}
-        <div className="max-w-6xl mx-auto mt-20 flex flex-col md:flex-row justify-center items-center gap-8">
-          <div className="w-1/3 flex justify-center">
+      {/* Final Icons Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div className="flex justify-center">
             <Image
               src={EnvironmentImage}
               alt="Beneficio medioambiental"
-              className="max-w-[500px] object-contain"
-              width={500}
-              height={500}
+              className="max-w-[300px] object-contain"
+              width={300}
+              height={300}
               priority
             />
           </div>
-          <div className="w-1/3 flex justify-center">
+          <div className="flex justify-center">
             <Image
               src={SocialPeopleImage}
               alt="Beneficio social"
-              className="max-w-[500px] object-contain"
-              width={500}
-              height={500}
+              className="max-w-[300px] object-contain"
+              width={300}
+              height={300}
               priority
             />
           </div>
-          <div className="w-1/3 flex justify-center">
+          <div className="flex justify-center">
             <Image
               src={SavingImage}
               alt="Ahorro económico"
-              className="max-w-[500px] object-contain"
-              width={500}
-              height={500}
+              className="max-w-[300px] object-contain"
+              width={300}
+              height={300}
               priority
             />
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
